@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Panel{% endblock %}
+{% block navbar_title %}Admin Panel{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header bg-info text-white">Admin Panel</div>
+                    <div class="card-body">
+                        <h5 class="card-title">User List</h5>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Username</th>
+                                    <th>Password</th>
+                                    <th>Balance</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for user in all_users %}
+                                    <tr>
+                                        <td>{{ user.id }}</td>
+                                        <td>{{ user.to_dict().get('password') }}</td>
+                                        <td>{{ user.to_dict().get('balance') }}</td>
+                                        <td>{{ user.to_dict().get('status') }}</td>
+                                        <td>
+                                            <a href="/edit/{{ user.id }}" class="btn btn-warning btn-sm">Edit</a>
+                                            <a href="/delete/{{ user.id }}" class="btn btn-danger btn-sm">Delete</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

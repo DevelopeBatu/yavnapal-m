@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}About Me{% endblock %}
+{% block navbar_title %}About Me{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-info text-white">About Me</div>
+                    <div class="card-body">
+                        <h5 class="card-title">User Information</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item">Username: {{ username }}</li>
+                            <li class="list-group-item">Balance: ${{ balance }}</li>
+                            <li class="list-group-item">Status: {{ status }}</li>
+                            <li class="list-group-item">Password: {{ password }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

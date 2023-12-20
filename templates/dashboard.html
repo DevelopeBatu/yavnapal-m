@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Bomb{% endblock %}
+{% block navbar_title %}BOMB{% endblock %}
+
+
+
+{% block content %}
+<div class="container mt-3">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="alert alert-info" role="alert">
+                Butona basınca yaklaşık 10-15 saniye bekleyiniz.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Mevcut içerik -->
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-info text-white">Bomb</div>
+                <div class="card-body">
+                    <form method="post">
+                        <div class="form-group">
+                            <label for="numberInput" class="text-dark">Bir sayı girin:</label>
+                            <input type="number" class="form-control" id="numberInput" name="number">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Gönder</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Düşüş işlemi gerçekleştiyse alt kısımda mesajı göster -->
+{% if deducted %}
+<div class="container mt-3">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="alert alert-success" role="alert">
+                -$10 azaldı lütfen kontrol edin.
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
